@@ -1,0 +1,53 @@
+<view
+  class="w-tab"
+  style="background-color: {{bgColor}}"
+>
+  <view class='common'>
+    <van-tabs
+      color='#0078D4'
+      title-active-color='#0078D4'
+      tab-active-class='activeTab'
+      tab-class='tabClass'
+      title-inactive-color='#858689'
+      line-height='4px'
+      line-width='50px'
+      swipeable
+      animated
+      active="{{ currentIndex }}"
+      bind:change="onChange"
+    >
+      <van-tab
+        wx:for="{{tabs}}"
+        wx:key="index"
+        title="{{item}}"
+      >
+      </van-tab>
+    </van-tabs>
+    <slot name='common'></slot>
+  </view>
+  <swiper
+    class="swiper"
+    bindchange="changeSwiper"
+    current="{{currentIndex}}"
+  >
+    <swiper-item
+      wx:for="{{tabs}}"
+      wx:key="index"
+    >
+      <scroll-view
+        wx:if="{{index === currentIndex}}"
+        style="height: 100%;"
+        scroll-y
+        refresher-enabled="{{needRefresh}}"
+        bindrefresherrefresh="refresh"
+        refresher-triggered="{{isRefresh}}"
+        bindscrolltolower="lower"
+      >
+        <slot name="{{index}}"></slot>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  <view class="bottom">
+    <slot name='bottom'></slot>
+  </view>
+</view>

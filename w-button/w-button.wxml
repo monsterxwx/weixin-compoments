@@ -1,0 +1,23 @@
+<view
+  wx:if="{{!double}}"
+  style="background-color: {{bgColor}};color:{{color}};border:{{border?'2rpx solid #becdd8':'none'}} ;"
+  bindtap="clickEvent"
+  class="button"
+>
+  {{name}}
+</view>
+<view
+  class="doubleButton"
+  wx:if="{{double}}"
+>
+  <view
+    class="baseButton"
+    style="background-color: {{leftBgColor}};"
+    bindtap="leftClick"
+  >{{leftName}}</view>
+  <view
+    class="baseButton"
+    style="background-color: {{rightBgColor}};"
+    bindtap="rightClick"
+  >{{rightName}}</view>
+</view>

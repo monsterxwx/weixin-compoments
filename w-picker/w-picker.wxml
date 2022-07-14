@@ -1,0 +1,27 @@
+<van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+  custom-style="{{customStyle}}"
+  bind:close="close"
+>
+  <view wx:if="{{!datetime}}">
+    <van-picker
+      show-toolbar
+      title="{{title}}"
+      columns="{{ list }}"
+      value-key="{{keyName}}"
+      bind:cancel="close"
+      bind:confirm="confirm"
+    />
+  </view>
+  <view wx:if="{{datetime}}">
+    <van-datetime-picker
+      title="{{title}}"
+      type="{{dateType}}"
+      value="{{ currentDate }}"
+      bind:cancel="close"
+      bind:confirm="timeConfirm"
+    />
+  </view>
+</van-popup>

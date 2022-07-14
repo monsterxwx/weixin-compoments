@@ -1,0 +1,28 @@
+<view
+  class="w-dep"
+  hover-class="{{clickable?'activeHover':''}}"
+  hover-stay-time='200'
+  style="min-height: {{minHeight}};border-bottom: {{noBorder?'none':'1px solid #E6E6E6'}};"
+>
+  <view
+    class="left"
+    style="width: {{leftWidth}};color:{{titleColor}};"
+  >
+    {{title}}
+  </view>
+  <view
+    class="right"
+    style="justify-content: {{flexLeft?'flex-start':'flex-end'}};"
+    bindtap="clickEvent"
+  >
+    <view class="text">
+      <slot></slot>
+    </view>
+    <view
+      class="icon"
+      wx:if="{{arrow}}"
+    >
+      <van-icon name="arrow" />
+    </view>
+  </view>
+</view>

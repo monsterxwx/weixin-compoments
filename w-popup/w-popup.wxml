@@ -1,0 +1,52 @@
+<van-popup
+  close-on-click-overlay="{{overlayClick}}"
+  show="{{ show }}"
+  round
+  position="{{top?'top':'bottom'}}"
+  custom-style="height: {{height}}"
+  bind:close="close"
+>
+  <view class="w-popup">
+    <view
+      class="topContent"
+      wx:if="{{showTitle}}"
+    >
+      <view
+        class="name {{titlePosition==='center'?'center':''}}"
+        style="font-size: {{titleSize}};color: {{titleColor}};"
+      >{{title}}</view>
+      <view
+        class="closeIcon"
+        bindtap="iconClose"
+      >
+        <van-icon
+          name="close"
+          size="25px"
+          color='#becdd8'
+        />
+      </view>
+    </view>
+    <view class="content">
+      <slot>内容</slot>
+    </view>
+    <view
+      class="bottom"
+      wx:if="{{!closeBottom}}"
+    >
+      <view
+        bindtap="close"
+        class="baseButton close"
+        style="background-color: {{leftBgColor}};color: {{leftColor}};"
+      >{{leftName}}</view>
+      <view
+        bindtap="reset"
+        hidden="{{!reset}}"
+        class="baseButton close"
+      >重置</view>
+      <view
+        class="baseButton"
+        bindtap="confim"
+      >{{rightName}}</view>
+    </view>
+  </view>
+</van-popup>

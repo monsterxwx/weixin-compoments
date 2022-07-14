@@ -1,0 +1,35 @@
+.w-content-ellipsis {
+  width: 690rpx;
+  padding: 0 30rpx;
+  border-top: 20rpx solid transparent;
+  border-bottom: 20rpx solid transparent;
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+
+  .contentInner {
+    width: 690rpx;
+    color: #2f3033;
+    font-size: 30rpx;
+    line-height: 1.35;
+    text-align: justify;
+  }
+
+  .hideArea {
+    display: -webkit-box;
+    overflow: hidden;
+    position: fixed;
+    top: 100vh;
+    left: -100vw;
+  }
+
+  .foldInner {
+    width: 690rpx;
+    padding-top: 10rpx;
+
+    .fold {
+      color: #6676bd;
+      font-size: 32rpx;
+      cursor: pointer;
+    }
+  }
+}

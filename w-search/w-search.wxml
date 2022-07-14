@@ -1,0 +1,97 @@
+<view class="top">
+  <view class="left">
+    <van-search
+      background="#eee"
+      bind:clear="searchClear"
+      bind:change="searchChange"
+      bind:blur="searchEvent"
+      value="{{ searchValue }}"
+      placeholder="{{placeholder }}"
+    />
+  </view>
+  <w-down-filter
+    bind:confim="confirm"
+    bind:reset="reset"
+    reset
+  >
+    <view>
+      <block
+        wx:for="{{propList}}"
+        wx:key="index"
+      >
+        <van-cell
+          bind:click="openSelect"
+          data-prop="{{item.prop}}"
+          data-index="{{index}}"
+          title="{{item.title}}"
+          title-width="{{item.width || '80px'}}"
+          value-class="{{item[item.prop]?'black':''}}"
+          is-link
+          value="{{item[item.prop] || item.default}}"
+        />
+      </block>
+
+    </view>
+  </w-down-filter>
+</view>
+
+<block
+  wx:for="{{propList}}"
+  wx:key="index"
+>
+  <!-- 日期选择器 datetime date -->
+  <w-picker
+    wx:if="{{item.date}}"
+    show="{{item.show}}"
+    title="{{item.tips || '选择日期'}}"
+    datetime
+    dateType="{{item.dateType || 'datetime'}}"
+    bind:confirm="changeSelect"
+    bind:close='closePicker'
+    data-prop="{{item.prop}}"
+    data-index="{{index}}"
+  ></w-picker>
+  <!-- 多选弹框 -->
+  <w-popup
+    wx:elif="{{item.multiSelect}}"
+    show="{{item.show}}"
+    bind:close='closePicker'
+    bind:confim="popConfim"
+    data-data="{{item.data}}"
+    data-prop="{{item.prop}}"
+    data-index="{{index}}"
+  >
+    <view
+      bindtap="selectItem"
+      class="multiSelectItem"
+      wx:for="{{ item.data }}"
+      wx:for-item="chil"
+      wx:for-index="cindex"
+      data-faterindex="{{index}}"
+      data-index='{{cindex}}'
+      data-chil="{{chil}}"
+      wx:key="cindex"
+    >
+      <view>{{chil[item.keyName]}}</view>
+      <view class="{{chil.isSelect ? 'checkClassSelect' : ''}} checkClass ">
+        <van-icon
+          wx:if="{{chil.isSelect}}"
+          color='#fff'
+          name="success"
+        />
+      </view>
+    </view>
+  </w-popup>
+  <!-- 普通选择器 -->
+  <w-picker
+    wx:else
+    show="{{item.show}}"
+    title="{{item.tips}}"
+    list="{{item.data}}"
+    keyName="{{item.keyName}}"
+    bind:confirm="changeSelect"
+    bind:close='closePicker'
+    data-prop="{{item.prop}}"
+    data-index="{{index}}"
+  ></w-picker>
+</block>

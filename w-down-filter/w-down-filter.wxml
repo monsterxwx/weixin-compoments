@@ -1,0 +1,22 @@
+<view
+  class="downFilter"
+  bindtap="clickEvent"
+>
+  <view>{{name}}</view>
+  <view class="icon">
+    <van-icon name="play" />
+  </view>
+</view>
+
+<w-popup
+  overlayClick="{{false}}"
+  reset="{{reset}}"
+  height="{{height}}"
+  top
+  show="{{show}}"
+  bind:close='close'
+  bind:confim='confim'
+  bind:reset='reset'
+>
+  <slot></slot>
+</w-popup>

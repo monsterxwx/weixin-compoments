@@ -1,0 +1,17 @@
+<view class="wCard">
+  <view class="top">
+    <view class="title">
+      <slot name='title'>
+      </slot>
+    </view>
+    <view class="right" hidden='{{closeRight}}'>
+      <slot name='right'></slot>
+    </view>
+  </view>
+  <view class="content">
+      <slot name='content'></slot>
+  </view>
+  <view class="bottom">
+    <slot name='bottom'>2022年10月10日</slot>
+  </view>
+</view>

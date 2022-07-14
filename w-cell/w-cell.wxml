@@ -1,0 +1,17 @@
+<van-cell-group inset='{{inset}}'>
+  <van-cell
+    data-item="{{item}}"
+    bind:click='clickEvent'
+    title-class='common {{item.titleClass}}'
+    value-class='{{item.valueClass}}'
+    title-width='{{titleWidth}}'
+    wx:for="{{list}}"
+    wx:key="index"
+    is-link="{{item.link}}"
+    link-type="navigateTo"
+    url="{{item.url}}"
+    title="{{item.title}}"
+    value="{{item.value}}"
+    required="{{item.required}}"
+  />
+</van-cell-group>

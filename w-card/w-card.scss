@@ -1,0 +1,42 @@
+.wCard {
+  width: 90%;
+  margin:  0 auto ;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  background: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 16rpx 48rpx;
+  font-size: 14px;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10rpx;
+    .title {
+      margin-left: 10px;
+      color: #333333;
+      font-weight: 700;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        width: 5px;
+        border-radius: 4px;
+        height: 15px;
+        background-color: #0078D4;
+        left: -10px;
+        top: 3px;
+      }
+    }
+    .right {
+      font-size: 13px;
+      color: #fff;
+    }
+  }
+  .bottom {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+    color: #c4abaa;
+  }
+}

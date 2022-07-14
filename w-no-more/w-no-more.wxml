@@ -1,0 +1,10 @@
+<view>
+  <view
+      wx:if="{{noMore}}"
+      class="showNoMoreDataMessage"
+    >无更多数据~</view>
+    <van-empty
+      wx:if="{{length===0}}"
+      description="无数据"
+    />
+</view>

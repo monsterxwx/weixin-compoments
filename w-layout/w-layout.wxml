@@ -1,0 +1,19 @@
+<view
+  class="wLayout"
+  style="background-color:{{bgColor}}"
+>
+  <slot name="common">common，用于不需要滚动的内容</slot>
+  <view class='scroll-content'>
+    <scroll-view
+      style="{{scrollStyle}}"
+      scroll-y="true"
+      bindscrolltolower="lower"
+      refresher-enabled='{{refresh}}'
+      refresher-triggered='{{isRefresh}}'
+      bindrefresherrefresh='refresh'
+    >
+      <slot name="scroll">scroll，用于滚动内容</slot>
+    </scroll-view>
+  </view>
+  <slot name='bottom'></slot>
+</view>

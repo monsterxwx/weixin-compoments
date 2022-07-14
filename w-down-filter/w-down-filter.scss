@@ -1,0 +1,18 @@
+.downFilter {
+  padding: 0 10px;
+  width: 100px;
+  height: 35px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: #0088F1;
+ 
+  .icon {
+    transition: all .4s;
+    transform: rotate(90deg);
+  }
+}

@@ -1,0 +1,12 @@
+<view
+  class="w-Dep-column"
+  style="border-bottom: {{noBorder?'none':' 1px solid #e6e6e6'}};"
+>
+  <view class="w-Dep-column-title">{{title}}</view>
+  <view
+    class="content"
+    style="min-height: {{minHeight}};"
+  >
+    <slot></slot>
+  </view>
+</view>

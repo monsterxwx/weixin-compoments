@@ -1,0 +1,45 @@
+<view
+  class="w-select"
+  style="width: {{width}};"
+  bindtap="openSelect"
+>
+  <input
+    disabled="{{disabled}}"
+    bindfocus='focusEvent'
+    bindinput='inputChange'
+    value="{{selectValue}}"
+    class="{{showSelect?'active':''}} input"
+    placeholder="{{placeholder}}"
+    type="text"
+  />
+  <view class="{{showSelect?'arrow-up':''}} arrow">
+    <van-icon name="arrow-down" />
+  </view>
+  <view
+    wx:if="{{showSelect}}"
+    class="select-content"
+  >
+    <view
+      bindtap="selectChange"
+      data-item="{{item}}"
+      class="{{selectValue==item[keyName]?'selectValue':''}} content-item"
+      wx:for="{{filterData}}"
+      wx:key="index"
+    >{{item[keyName]}}</view>
+    <view
+      class="content-item"
+      wx:if="{{filterData.length<1}}"
+    >无匹配项</view>
+  </view>
+  <view
+    wx:if="{{showSelect}}"
+    class="triangle"
+  ></view>
+</view>
+<view
+  wx:if="{{showSelect}}"
+  catchtap="closeContentSelect"
+  class="contentMask"
+>
+
+</view>

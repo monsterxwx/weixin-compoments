@@ -1,0 +1,9 @@
+<van-uploader
+  preview-size='{{imgSize}}'
+  file-list="{{ fileList }}"
+  multiple
+  use-before-read
+  bind:before-read='beforeRead'
+  bind:after-read="afterRead"
+  bind:delete='deleteImg'
+/>
