@@ -42,7 +42,7 @@ Component({
     },
     title:{
       type:String,
-      value:'标题'
+      value:''
     },
     showTitle:{
       type:Boolean,

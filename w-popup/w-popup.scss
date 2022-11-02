@@ -4,11 +4,9 @@
   display: flex;
   flex-flow: column nowrap;
 
-  .topContent {
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;   
-    padding: 10px 10px 0 10px;
+  .topContent {  
+    padding: 20rpx 20rpx 0 20rpx;
+    min-height: 30rpx;
     .name {
       color: #666;
       font-family: Microsoft YaHei, Microsoft YaHei-Bold;
@@ -16,6 +14,7 @@
       font-size: 30rpx;
       display: flex;
       justify-content: flex-start;
+      padding-bottom: 10rpx;
     }
     .center {
       justify-content: center;
